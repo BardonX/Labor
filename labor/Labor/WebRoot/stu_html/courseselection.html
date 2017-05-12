@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>选课退课</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		select,button{
+			width: 500px;
+			height:400px;
+		}
+	</style>
+</head>
+
+<body>
+<div id="divsel1" style="float: left">
+	<h5>可选课程</h5>
+	<select id="sel1" multiple="multiple">
+		<option>课程名称&老师姓名&上课地点&上课时间&上课周数</option>
+		<option><hr/></option>
+		<option>软件测试&何伟&教4-202&50102&1-16</option>
+		<option>php程序设计&李康&教4-604&10102&1-16</option>
+		<option>编译原理&孙斌&教4-403&10304&1-16&&教4-108&30102&1-16单</option>
+		<option>手机app应用技术开发&肖蓉&教4-507&20809&1-12&&教4-108&40607&1-12</option>
+		<option>LINUX系统与分析&徐捷&教4-202&20102&1-16</option>
+		<option>应用软件综合设计&曾诚&教4-108-3030405&1-12</option>
+	</select><br/>
+	<input type="button" name="sele" value="选课" onclick="sele();">
+</div>
+
+<div id="divsel2" style="float: right">
+	<h5>已选课程</h5>
+	<select id="sel2" multiple="multiple">
+		<option>课程名称&老师姓名&上课地点&上课时间&上课周数</option>
+		<option><hr/></option>
+	</select><br/>
+	<input type="button" name="cancel" value="退课" onclick="cancel();">
+</div>
+
+<script type="text/javascript">
+	function sele(){
+		var sel2=document.getElementById("sel2");
+		var sel1=document.getElementById("sel1");
+		var options1=sel1.getElementsByTagName("option");
+		for(var i=0;i<options1.length;i++){
+			var opts1=options1[i];
+			if(opts1.selected==true){
+				sel2.appendChild(opts1);
+				i--;
+			}
+		}	
+	}
+	function cancel(){
+		var sel1=document.getElementById("sel1");
+		var sel2=document.getElementById("sel2");
+		var options2=sel2.getElementsByTagName("option");
+		for(var i=0;i<options2.length;i++){
+			opts2=options2[i];
+			if(opts2.selected==true){
+				sel1.appendChild(opts2);
+				i--;
+			}
+		}
+
+	}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,1 @@
+select timeLocation_3 from t_course where course_id=1
